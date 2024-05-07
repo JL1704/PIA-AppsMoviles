@@ -1,0 +1,12 @@
+<ion-list>
+  <ion-item *ngFor="let game of games" (click)="openModal(game)">
+    <ion-thumbnail slot="start">
+      <img [src]="game.imageUrl">
+    </ion-thumbnail>
+    <ion-label>
+      <h2>{{ game.title }}</h2>
+      <p>{{ game.category }}</p>
+      <p>Precio: {{ game.price }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>

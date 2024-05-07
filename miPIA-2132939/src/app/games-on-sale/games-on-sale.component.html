@@ -1,0 +1,13 @@
+<ion-scroll scrollX="true" class="custom-scroll" scrollEvents="true">
+  <ion-list>
+    <ion-item *ngFor="let item of items" (click)="openModal(item)" class="horizontal-item">
+      <ion-thumbnail slot="start" class="thumbnail">
+        <img [src]="item.imageUrl" class="thumbnail-img">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-scroll>
