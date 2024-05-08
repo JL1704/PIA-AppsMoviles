@@ -1,3 +1,27 @@
-<p>
-  game-modal works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Detalles del juego
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-img [src]="selectedGame?.imageUrl" class="game-image"></ion-img>
+    <ion-card-content>
+      <ion-card-subtitle>{{ selectedGame?.category }}</ion-card-subtitle>
+      <ion-card-title>{{ selectedGame?.title }}</ion-card-title>
+      <ion-card-subtitle>
+        Precio: {{ selectedGame?.price }}
+      </ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

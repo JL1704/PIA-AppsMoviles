@@ -1,22 +1,28 @@
-.custom-scroll {
-    width: 100%; /* Asegura que el ion-scroll tenga un ancho definido */
-    overflow-x: auto; /* Habilita el desplazamiento horizontal */
-    white-space: nowrap; /* Evita el envoltorio de los elementos en la lista */
-    display: block; /* Asegura que el ion-scroll se comporte como un bloque */
-  }
-  
-  .horizontal-item {
-    display: inline-block; /* Muestra los elementos de la lista en línea */
-    margin-right: 10px; /* Espacio entre los elementos */
-    margin-top: 10px;
-  }
-  
-  .thumbnail {
-    width: 150px; /* Ancho de la imagen */
-    height: auto; /* Altura automática para mantener la proporción */
-  }
-  
-  .thumbnail-img {
-    width: 100%; /* Ajusta la imagen al ancho del contenedor */
-    height: auto; /* Altura automática para mantener la proporción */
-  }
+
+/* Ajustes CSS para la lista horizontal */
+.custom-list {
+  display: flex;
+  flex-direction: row; /* Cambia la dirección de la lista a horizontal */
+  overflow-x: auto; /* Permite desplazamiento horizontal si los elementos no caben en el contenedor */
+  -webkit-overflow-scrolling: touch; /* Mejora el desempeño de desplazamiento en dispositivos móviles */
+  padding: 10px; /* Ajusta el relleno según sea necesario */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Estilos adicionales para los elementos de la lista */
+.horizontal-item {
+  flex: 0 0 auto; /* Evita que los elementos se redimensionen automáticamente */
+  margin-right: 10px; /* Añade un espacio entre los elementos */
+  min-width: 200px; /* Define un ancho mínimo para cada elemento */
+}
+
+.thumbnail {
+  width: 150px; 
+  height: auto; 
+}
+
+.thumbnail-img {
+  width: 100%; 
+  height: auto; 
+}
