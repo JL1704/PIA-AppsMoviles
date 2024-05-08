@@ -10,7 +10,7 @@
       </ion-label>
     </ion-item>
   </ion-list>
-</ion-scroll>-->
+</ion-scroll>
 
 <ion-list class="custom-list">
   <ion-item *ngFor="let item of items" (click)="openModal(item)" class="horizontal-item">
@@ -23,7 +23,20 @@
       <p>Precio: {{ item.price }}</p>
     </ion-label>
   </ion-item>
+</ion-list>-->
+
+<ion-list class="custom-list">
+  <ion-item *ngFor="let item of items" (click)="openModal(item)" class="horizontal-item">
+    <ion-thumbnail slot="start" class="thumbnail">
+      <img [src]="item.imageUrl" class="thumbnail-img">
+      <div class="price-bar">
+        <p>{{ item.price }}</p>
+      </div>
+    </ion-thumbnail>
+  </ion-item>
 </ion-list>
+
+
 
 
 

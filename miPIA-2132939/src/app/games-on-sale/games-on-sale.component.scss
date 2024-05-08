@@ -1,4 +1,3 @@
-
 /* Ajustes CSS para la lista horizontal */
 .custom-list {
   display: flex;
@@ -18,11 +17,26 @@
 }
 
 .thumbnail {
-  width: 150px; 
-  height: auto; 
+  width: 200px; /* Ajusta el tamaño de la miniatura */
+  height: auto; /* Mantiene la proporción de la imagen */
 }
 
 .thumbnail-img {
-  width: 100%; 
-  height: auto; 
+  width: 100%; /* Ajusta la anchura de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Estilos para la barra de precio */
+.price-bar {
+  display: flex; /* Usa flexbox para alinear los elementos */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
+  color: white; /* Color del texto */
+  padding: 5px; /* Espaciado interior */
+  position: absolute; /* Posición absoluta para superponerla sobre la miniatura */
+  bottom: 0; /* Anclarla en la parte inferior */
+  width: 200px; /* Ocupa todo el ancho disponible */
+  height: 40px;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
 }
