@@ -26,17 +26,34 @@
   height: auto; /* Mantiene la proporción de la imagen */
 }
 
-/* Estilos para la barra de precio */
 .price-bar {
-  display: flex; /* Usa flexbox para alinear los elementos */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
-  color: white; /* Color del texto */
-  padding: 5px; /* Espaciado interior */
-  position: absolute; /* Posición absoluta para superponerla sobre la miniatura */
-  bottom: 0; /* Anclarla en la parte inferior */
-  width: 200px; /* Ocupa todo el ancho disponible */
+  display: flex;
+  justify-content: space-between; /* Distribuye los elementos de forma uniforme */
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 200px;
   height: 40px;
-  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  box-sizing: border-box;
+}
+
+.discount {
+  background-color: #8F56FA; /* Color de fondo para resaltar el descuento */
+  color: white;
+  padding: 3px 8px; /* Espaciado interior */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.price {
+  font-size: 0.8em; /* Tamaño de fuente más grande para el precio */
+  text-decoration: line-through;
+  margin-bottom: 0px;
+}
+
+.final-price {
+  font-weight: bold; /* Hace que el precio final sea más prominente */
+  margin-top: 0px;
 }

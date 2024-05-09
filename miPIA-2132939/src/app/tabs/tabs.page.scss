@@ -1,1 +1,5 @@
-
+/* CSS personalizado para cambiar el color del tab activo */
+ion-tab-button.tab-selected {
+    --color-selected: #8F56FA; /* Cambia el color del tab activo a rojo */
+  }
+  

@@ -1,0 +1,33 @@
+
+/* Estilo para el componente <ion-item> */
+ion-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Estilo para el contenedor <ion-thumbnail> */
+  ion-thumbnail {
+    width: 100px; /* Permitir que el contenedor se expanda según el tamaño de la imagen */
+    height: auto; /* Permitir que el contenedor se expanda según el tamaño de la imagen */
+  }
+  
+  /* Estilo para la imagen dentro de <ion-thumbnail> */
+  ion-thumbnail img {
+    width: 100px; /* Ajustar la imagen para llenar todo el contenedor */
+    height: auto; /* Ajustar la imagen para llenar todo el contenedor */
+  }
+  
+  /* Estilo para la etiqueta <ion-label> */
+  ion-label {
+    flex: 1;
+    text-align: left;
+  }
+      
+  /* Estilo para el precio */
+  ion-item p {
+    margin-top: 5px;
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  
