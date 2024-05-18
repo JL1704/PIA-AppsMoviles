@@ -1,0 +1,25 @@
+{
+  "hosting": [
+    {
+      "target": "app",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ],
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "firestore": {
+      "port": 9098
+    },
+    "hosting": {
+      "port": 9097
+    },
+    "ui": {
+      "enabled": true,
+      "port": 9096
+    },
+    "singleProjectMode": true
+  }
+}

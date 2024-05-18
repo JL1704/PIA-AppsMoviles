@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "gamestore-f8ecf",
+    "gameStore1": "gamestore-d3f5c"
+  },
+  "targets": {
+    "gamestore-d3f5c": {
+      "hosting": {
+        "app": [
+          "gamestore-d3f5c"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
