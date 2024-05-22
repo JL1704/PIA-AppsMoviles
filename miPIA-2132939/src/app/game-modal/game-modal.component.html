@@ -20,10 +20,13 @@
       <ion-card-subtitle>
         Price: {{ selectedGame?.finalprice }}
       </ion-card-subtitle>
+      <ion-card-subtitle>
+        Description: {{ selectedGame?.description }}
+      </ion-card-subtitle>
     </ion-card-content>
   </ion-card>
 
-  <ion-button expand="full" (click)="addToCart()">Add to Cart</ion-button>
+  <ion-button color="tertiary" expand="full" (click)="addToCart()">Add to Cart</ion-button>
 </ion-content>
 
 

@@ -16,8 +16,12 @@ export class GamesListComponent implements OnInit {
   constructor(private modalController: ModalController, private gameDataService: GameDataService) {}
 
   async ngOnInit() {
-    // Obtener la lista de todos los juegos del servicio al inicializar el componente
-    this.games = await this.gameDataService.getAllGames();
+    try {
+      // Obtener todos los juegos de la colección "GamesList"
+      this.games = await this.gameDataService.getAllGamesFromFirestore();
+    } catch (error) {
+      console.error("Error al obtener los juegos:", error);
+    }
   }
 
   async openModal(game: Game) {
@@ -29,8 +33,5 @@ export class GamesListComponent implements OnInit {
     });
     return await modal.present();
   }
-
 }
-
-
 
