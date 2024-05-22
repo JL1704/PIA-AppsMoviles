@@ -1,13 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>My Profile</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true" *ngIf="isLoggedIn">
+  <!-- Contenido del encabezado cuando el usuario está autenticado -->
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="isLoggedIn">
+  <!-- Contenido del perfil cuando el usuario está autenticado -->
+  <p>Hola</p>
+  <app-dashboard></app-dashboard>
+</ion-content>
+
+<ion-content [fullscreen]="true" *ngIf="!isLoggedIn">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Profile</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- Componente de inicio de sesión -->
+  <app-login></app-login>
 </ion-content>
+
