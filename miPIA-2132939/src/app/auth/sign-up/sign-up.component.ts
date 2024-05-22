@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { IonInput } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,11 +9,22 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent {
-  constructor(private authService: AuthService) {
+  @ViewChild('email') emailInput!: IonInput;
+  @ViewChild('password') passwordInput!: IonInput;
 
+  constructor(private authService: AuthService, private modalController: ModalController) {}
+
+  signUp(event: Event) {
+    event.preventDefault();
+    const email = this.emailInput.value as string;
+    const password = this.passwordInput.value as string;
+
+    if (email && password) {
+      this.authService.signUpWithEmailAndPassword(email, password);
+    }
   }
 
-  signUp(email: string, password: string) {
-    this.authService.signUpWithEmailAndPassword(email, password);
+  closeModal() {
+    this.modalController.dismiss();
   }
 }

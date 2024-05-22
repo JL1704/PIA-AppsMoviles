@@ -21,7 +21,7 @@ export class LoginComponent {
     this.authService.logInWithEmailAndPassword(email, password)
       .then(() => {
         // Redireccionar al usuario a la página de inicio
-        this.router.navigate(['/tabs/home']);
+        this.router.navigate(['/tabs/profile']);
       })
       .catch(error => {
         // Manejar el error, por ejemplo, mostrar un mensaje de error al usuario
@@ -34,7 +34,7 @@ export class LoginComponent {
     this.authService.logInWithGoogleProvider()
       .then(() => {
         // Redireccionar al usuario a la página de inicio
-        this.router.navigate(['/tabs/home']);
+        this.router.navigate(['/tabs/profile']);
       })
       .catch(error => {
         // Manejar el error, por ejemplo, mostrar un mensaje de error al usuario

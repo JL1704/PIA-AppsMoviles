@@ -9,6 +9,7 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 import { ProfilePage } from './profile.page';
 import { LoginComponent } from '../auth/login/login.component';
 import { DashboardComponent } from '../auth/dashboard/dashboard.component';
+import { SignUpComponent } from '../auth/sign-up/sign-up.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { DashboardComponent } from '../auth/dashboard/dashboard.component';
     IonicModule,
     ProfilePageRoutingModule
   ],
-  declarations: [ProfilePage, LoginComponent, DashboardComponent]
+  declarations: [ProfilePage, LoginComponent, DashboardComponent, SignUpComponent]
 })
 export class ProfilePageModule {}

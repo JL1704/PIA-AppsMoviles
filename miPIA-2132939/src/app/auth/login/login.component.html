@@ -47,34 +47,31 @@
   </div>
 </section>-->
 <ion-card>
-  <ion-card-content>
-    <h1>
-      Sign in to your account
-    </h1>
-    <ion-item>
-      <ion-label position="floating">Your email</ion-label>
+  <ion-card-content class="login-form">
+    <h1 class="login-title">Sign in to your account</h1>
+
+    <ion-item lines="none">
+      <ion-label position="stacked" class="input-label">Your email</ion-label>
       <ion-input type="email" name="email" id="email" [(ngModel)]="email" placeholder="example@email.com" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
+    <ion-item lines="none">
+      <ion-label position="stacked" class="input-label">Password</ion-label>
       <ion-input type="password" name="password" id="password" [(ngModel)]="password" placeholder="••••••••" required></ion-input>
     </ion-item>
 
-    <ion-button expand="full" color="primary" (click)="logIn(email, password)">
+    <ion-button expand="full" color="tertiary" class="login-button" (click)="logIn(email, password)">
       Sign in
     </ion-button>
 
-    <ion-button expand="full" color="light" (click)="logInWithGoogle()">
-      <ion-icon slot="start" src="https://www.svgrepo.com/show/475656/google-color.svg"></ion-icon>
-      <span>Sign in with Google</span>
+    <ion-button expand="full" color="light" class="login-button" (click)="logInWithGoogle()">
+      <ion-icon name="logo-google" class="google-icon"></ion-icon>
+      <span class="google-text">Sign in with Google</span>
     </ion-button>
-    <p>
-      Don’t have an account yet?
-      <a href="#" routerLink="/auth/sign-up">Sign up</a>
-    </p>
+    
   </ion-card-content>
 </ion-card>
+
 
 
 
