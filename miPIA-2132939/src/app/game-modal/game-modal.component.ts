@@ -26,12 +26,3 @@ export class GameModalComponent {
   }
 
 }
-
-
-
-
-
-
-
-
-
