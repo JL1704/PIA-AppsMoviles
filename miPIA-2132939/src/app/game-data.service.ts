@@ -81,6 +81,11 @@ import { BehaviorSubject } from 'rxjs';
 import { Game } from './game.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore'; // Importa el servicio AngularFirestore
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -131,3 +136,4 @@ export class GameDataService {
   }
 
 }
+

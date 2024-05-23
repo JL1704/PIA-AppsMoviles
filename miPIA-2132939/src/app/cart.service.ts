@@ -4,8 +4,9 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';//
 import { Game } from './game.model';
 import firebase from 'firebase/compat/app';//
-import { combineLatest, Observable } from 'rxjs';
+import { combineLatest, Observable  } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -75,13 +76,11 @@ export class CartService {
     }
   }
     
-  
-  
   clearCart() {
     this.cartItemsSubject.next([]); // Actualiza el BehaviorSubject localmente
     this.updateFirestoreCart([]); // Actualiza Firestore para limpiar el carrito
   }
-  
+
   private updateFirestoreCart(cartItems: Game[]) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -100,47 +99,10 @@ export class CartService {
   
   getTotal(): Observable<number> {
     return this.cartItems$.pipe(
-      switchMap(cartItems => {
-        // Obtener el UID del usuario actual
-        return this.afAuth.currentUser.then(user => {
-          if (user) {
-            const uid = user.uid;
-
-            // Obtener el carrito del usuario desde Firestore
-            return this.firestore.collection('ShoppingCart').doc(uid).valueChanges();
-          } else {
-            return [];
-          }
-        });
-      }),
-      map((cart: any) => {
-        if (cart && cart.Cart) {
-          // Calcular el total sumando los precios finales de los juegos en el carrito
-          return cart.Cart.reduce((total: number, item: any) => total + item.finalprice, 0);
-        } else {
-          return 0;
-        }
+      map((games: Game[]) => {
+        return games.reduce((total, game) => total + (game.finalprice || 0), 0);
       })
     );
   }
+  
 }
-/*
-  removeFromCart(index: number) {
-    const currentCartItems = this.cartItemsSubject.getValue();
-    if (index >= 0 && index < currentCartItems.length) {
-      const updatedCartItems = currentCartItems.filter((item, i) => i !== index);
-      this.cartItemsSubject.next(updatedCartItems);
-    }
-  }
-
-  clearCart() {
-    this.cartItemsSubject.next([]);
-  }
-
-  getTotal(): number {
-    const currentCartItems = this.cartItemsSubject.getValue();
-    return currentCartItems.reduce((total, item) => total + item.finalprice, 0);
-  }
-*/
-  // Agrega otros métodos según sea necesario, como actualizar la cantidad de un elemento en el carrito, etc.*/
-

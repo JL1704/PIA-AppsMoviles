@@ -60,7 +60,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { Game } from '../game.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -69,10 +69,15 @@ import { Observable } from 'rxjs';
 })
 export class ShoppingCartComponent implements OnInit {
 
+
   cartItems: Game[] = [];
+  total: number = 0;
   total$: Observable<number> | undefined; // Observable para el total del carrito
 
-  constructor(private cartService: CartService, private afAuth: AngularFireAuth) { }
+  constructor(private cartService: CartService, private afAuth: AngularFireAuth) { 
+
+  
+  }
 
   ngOnInit(): void {
     this.afAuth.authState.subscribe(user => { // Escucha cambios en el estado de autenticación
@@ -84,20 +89,22 @@ export class ShoppingCartComponent implements OnInit {
         });
       }
     });
+    
   }
 
   removeFromCart(index: number) {
     this.cartService.removeFromCart(index); // Llama a la función para eliminar el juego del carrito
   }
 
+
   updateTotal() {
-    this.total$ = this.cartService.getTotal(); // Obtiene el total actual del carrito
+    this.total = this.cartItems.reduce((total, item) => total + (item.finalprice || 0), 0);
+    this.total$ = of(this.total); // Convierte el número en un observable utilizando 'of' de RxJS
   }
+  
 
   isInCart(game: Game): boolean {
     return this.cartItems.some(item => item.title === game.title);
   }
+
 }
-
-
-
