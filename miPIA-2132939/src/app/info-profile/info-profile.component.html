@@ -1,0 +1,31 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ username }}</ion-card-title>
+    <ion-card-subtitle>{{ email }}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="https://th.bing.com/th/id/OIP.JBpgUJhTt8cI2V05-Uf53AHaG1?rs=1&pid=ImgDetMain" />
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="8">
+          <ion-row>
+            <ion-col size="10">
+              <ion-item>
+                <ion-label position="stacked">Nuevo username</ion-label>
+                <ion-input [(ngModel)]="newUsername"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="2">
+              <ion-button (click)="editProfile(newUsername)">Editar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+

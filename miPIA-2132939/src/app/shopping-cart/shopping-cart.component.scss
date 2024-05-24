@@ -1,0 +1,30 @@
+/* Ajustes generales */
+
+/* Estilos para la imagen del juego */
+
+  
+ion-list {
+    padding: 0;
+  }
+  
+  ion-item {
+    --inner-padding-end: 16px; // Ajusta el espacio interno a la derecha
+  }
+  
+  /* Estilos para el icono de basura */
+  .trash-icon {
+    color: #ff6347; // Cambia el color del icono de basura a rojo
+  }
+  
+  /* Estilos para el botón "Transfer to Library" */
+  .transfer-button {
+    margin-top: 20px; // Añade un espacio superior al botón
+  }
+  
+  /* Estilos para el mensaje "Your cart is empty" */
+  .empty-cart-message {
+    margin-top: 20px; // Añade un espacio superior al mensaje
+    font-style: italic; // Estilo de fuente en cursiva
+    font-size: 14px; // Tamaño de fuente más pequeño
+  }
+  

@@ -1,0 +1,25 @@
+.game-thumbnail {
+  --border-radius: 8px;
+  width: 100%;
+  height: auto; /* Ajusta la altura según sea necesario */
+  overflow: hidden;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+
+ion-card {
+  height: 100%;
+}
+
+ion-card-content {
+  padding: 0;
+}
+
+ion-thumbnail {
+  margin-bottom: 8px;
+}
+
+  

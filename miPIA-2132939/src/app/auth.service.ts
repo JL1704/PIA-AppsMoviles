@@ -21,5 +21,9 @@ export class AuthService {
   async logout() {
     return await this.afAuth.signOut();
   }
+
+  getCurrentUser(): Observable<firebase.User | null> {
+    return this.user$;
+  }
 }
 

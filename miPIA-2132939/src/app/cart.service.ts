@@ -75,11 +75,11 @@ export class CartService {
       console.error('Error al eliminar campo del carrito en Firestore:', error);
     }
   }
-    
+  /*  
   clearCart() {
     this.cartItemsSubject.next([]); // Actualiza el BehaviorSubject localmente
     this.updateFirestoreCart([]); // Actualiza Firestore para limpiar el carrito
-  }
+  }*/
 
   private updateFirestoreCart(cartItems: Game[]) {
     this.afAuth.authState.subscribe(user => {
@@ -104,5 +104,57 @@ export class CartService {
       })
     );
   }
+/*
+  async transferCartToLibrary(uid: string, cartItems: Game[]) {
+    try {
+      const libraryRef = this.firestore.collection('library').doc(uid);
+      const gameRefs = cartItems.map(item => this.firestore.collection('AllGames').doc(item.title).ref);
+  
+      // Transferir los datos del carrito a la colección "library"
+      await libraryRef.set({ Cart: gameRefs }, { merge: true });
+    } catch (error) {
+      throw error;
+    }
+  }*/
+
+  async transferCartToLibrary(uid: string, cartItems: Game[]) {
+    try {
+      const libraryRef = this.firestore.collection('library').doc(uid);
+      const existingData = await libraryRef.get().toPromise();
+      let existingCart: { [key: string]: any } = {}; // Definimos el tipo de existingCart como un objeto con índices de tipo string y valores de cualquier tipo
+      
+      if (existingData && existingData.exists) {
+        existingCart = (existingData.data() as { Cart?: { [key: string]: any } }).Cart || {};
+      }
+  
+      const newCart: { [key: string]: any } = cartItems.reduce((acc: { [key: string]: any }, item) => { // Define explícitamente el tipo de acc como un objeto con índices de tipo string y valores de cualquier tipo
+        acc[item.title] = this.firestore.collection('AllGames').doc(item.title).ref;
+        return acc;
+      }, {});
+  
+      // Merge existing cart with new cart
+      const mergedCart = { ...existingCart, ...newCart };
+  
+      // Transfer the merged cart to the "library" collection
+      await libraryRef.set({ Cart: mergedCart }, { merge: true });
+    } catch (error) {
+      throw error;
+    }
+  }
+  
+  
+  
+  
+
+  
+  async clearCart(uid: string) {
+    try {
+      const cartRef = this.firestore.collection('ShoppingCart').doc(uid);
+      await cartRef.delete();
+    } catch (error) {
+      throw error;
+    }
+  }
+  
   
 }

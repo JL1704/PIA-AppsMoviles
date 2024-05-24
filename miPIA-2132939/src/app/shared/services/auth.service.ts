@@ -4,10 +4,13 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
 
   userData: any;
   private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -28,6 +31,7 @@ export class AuthService {
         this.isLoggedInSubject.next(false); // Notificar que el usuario ha cerrado sesión correctamente
       }
     });
+
   }
 
 

@@ -1,45 +1,32 @@
-<!--<ion-content>
-  <ion-list *ngIf="cartItems.length > 0">
-    <ion-item *ngFor="let item of cartItems; let i = index">
-      <ion-thumbnail slot="start">
-        <ion-img [src]="item.imageUrl"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ item.title }}</h2>
-        <p>{{ item.finalprice }}</p>
-      </ion-label>
-      <ion-button slot="end" (click)="removeFromCart(i)">Remove</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-label>Total:</ion-label>
-      <ion-label>{{ total }}</ion-label>
-    </ion-item>
-  </ion-list>
-  <ion-note *ngIf="cartItems.length === 0" color="medium">Your cart is empty.</ion-note>
-</ion-content>-->
 
 <ion-content>
   <ion-list *ngIf="cartItems.length > 0">
     <ion-item *ngFor="let item of cartItems; let i = index">
-      <ion-thumbnail slot="start">
+      <ion-thumbnail class="game-thumbnail" slot="start">
         <ion-img [src]="item.imageUrl"></ion-img>
-      </ion-thumbnail>
+      </ion-thumbnail>      
       <ion-label>
         <h2>{{ item.title }}</h2>
         <p>{{ item.finalprice }}</p>
       </ion-label>
-      <ion-button slot="end" (click)="removeFromCart(i)">Remove</ion-button>
+      <ion-button fill="clear" slot="end" (click)="removeFromCart(i)">
+        <ion-icon class="trash-icon" name="trash-outline"></ion-icon>
+      </ion-button>      
     </ion-item>
-    <ion-item>
+    <ion-item lines="none">
       <ion-label>Total:</ion-label>
       <ion-label>{{ total$ | async }}</ion-label> 
     </ion-item>
     <ion-item>
-      
+      <ion-button expand="block" color="success" (click)="transferToLibrary()">
+        Transfer to Library
+      </ion-button>
     </ion-item>
-
   </ion-list>
-  <ion-note *ngIf="cartItems.length === 0" color="medium">Your cart is empty.</ion-note>
+  <ion-note *ngIf="cartItems.length === 0" color="medium">
+    Your cart is empty.
+  </ion-note>
 </ion-content>
+
 
 

@@ -10,6 +10,7 @@ import { ProfilePage } from './profile.page';
 import { LoginComponent } from '../auth/login/login.component';
 import { DashboardComponent } from '../auth/dashboard/dashboard.component';
 import { SignUpComponent } from '../auth/sign-up/sign-up.component';
+import { InfoProfileComponent } from '../info-profile/info-profile.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { SignUpComponent } from '../auth/sign-up/sign-up.component';
     IonicModule,
     ProfilePageRoutingModule
   ],
-  declarations: [ProfilePage, LoginComponent, DashboardComponent, SignUpComponent]
+  declarations: [ProfilePage, LoginComponent, DashboardComponent, SignUpComponent, InfoProfileComponent]
 })
 export class ProfilePageModule {}

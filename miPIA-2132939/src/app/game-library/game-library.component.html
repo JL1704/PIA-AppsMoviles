@@ -1,0 +1,21 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="6" *ngFor="let item of libraryItems">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title class="no-wrap">{{ item.title }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-thumbnail class="game-thumbnail">
+            <ion-img [src]="item.imageUrl"></ion-img>
+          </ion-thumbnail>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+
+
