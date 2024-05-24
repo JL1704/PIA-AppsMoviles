@@ -17,9 +17,11 @@ import { environment } from 'src/environments/environment';
 //import { connectFirestoreEmulator } from 'firebase/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, GameModalModule,FirestoreModule, provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), 
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, GameModalModule,FirestoreModule, ReactiveFormsModule, provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), 
     provideFirebaseApp(() => initializeApp({"projectId":"gamestore-d3f5c","appId":"1:1058806512168:web:71ac10fdd50a3da7ac931d","storageBucket":"gamestore-d3f5c.appspot.com","apiKey":"AIzaSyAiSEzzr0GzuCinSKda4Q1GkHSU7fuEhO4","authDomain":"gamestore-d3f5c.firebaseapp.com","messagingSenderId":"1058806512168"})),
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],

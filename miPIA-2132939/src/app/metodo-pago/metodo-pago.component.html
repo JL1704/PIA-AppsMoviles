@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Método de Pago
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="metodoPagoForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Número de Tarjeta</ion-label>
+        <ion-input formControlName="cardNumber" type="tel" placeholder="1234-5678-9012-3456" pattern="\d{4}-\d{4}-\d{4}-\d{4}" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Fecha de Expiración (MM/YY)</ion-label>
+        <ion-input formControlName="expirationDate" type="text" placeholder="MM/YY" pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">CVV</ion-label>
+        <ion-input formControlName="cvv" type="tel" placeholder="123" minlength="3" maxlength="4" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit" expand="block" [disabled]="!metodoPagoForm.valid">Enviar</ion-button>
+    <ion-button (click)="dismissModal()" expand="block" color="danger">Cerrar</ion-button>
+  </form>
+</ion-content>

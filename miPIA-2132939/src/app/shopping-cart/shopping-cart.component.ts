@@ -3,6 +3,7 @@ import { CartService } from '../cart.service';
 import { Game } from '../game.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable, of } from 'rxjs';
+import { MetodoPagoService } from '../metodo-pago.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,8 +14,9 @@ export class ShoppingCartComponent implements OnInit {
   cartItems: Game[] = [];
   total: number = 0;
   total$: Observable<number> | undefined; // Observable para el total del carrito
+  cardNumberExists: boolean = false; // Declaración de la propiedad cardNumberExists
 
-  constructor(private cartService: CartService, private afAuth: AngularFireAuth) {}
+  constructor(private cartService: CartService, private afAuth: AngularFireAuth, private metodoPagoService: MetodoPagoService ) {}
 
   ngOnInit(): void {
     this.afAuth.authState.subscribe(user => {
@@ -24,6 +26,10 @@ export class ShoppingCartComponent implements OnInit {
           this.cartItems = items;
           this.updateTotal();
         });
+        // Obtener el valor de cardNumber y actualizar cardNumberExists
+        this.metodoPagoService.getCardNumber(uid)
+          .then((cardNumber: string | undefined) => this.cardNumberExists = !!cardNumber) // Corrección TS7006
+          .catch(error => console.error('Error al obtener el número de tarjeta:', error)); // Manejo de errores
       }
     });
   }
@@ -54,10 +60,8 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
 
-
-  
-
   isInCart(game: Game): boolean {
     return this.cartItems.some(item => item.title === game.title);
   }
 }
+

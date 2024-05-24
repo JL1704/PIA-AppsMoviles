@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { MetodoPagoComponent } from '../metodo-pago/metodo-pago.component';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartPage implements OnInit {
 
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {
   }
 
+  async openMetodoPagoModal() {
+    const modal = await this.modalController.create({
+      component: MetodoPagoComponent,
+      componentProps: { }
+    });
+    return await modal.present();
+  }
+
 }
+

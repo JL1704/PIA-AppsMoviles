@@ -1,0 +1,28 @@
+form {
+    ion-list {
+      ion-item {
+        --background: #b14af6; // Cambia el color de fondo de los elementos del formulario
+        --border-radius: 10px; // Ajusta el radio de borde para hacer los elementos más redondeados
+        --padding-start: 10px; // Ajusta el espacio interno del elemento
+        --padding-end: 10px;
+        margin-bottom: 15px; // Añade margen entre los elementos del formulario
+  
+        ion-label {
+          color: #333; // Cambia el color del texto de la etiqueta
+          font-size: 16px; // Ajusta el tamaño del texto de la etiqueta
+        }
+  
+        ion-input {
+          font-size: 16px; // Ajusta el tamaño del texto de entrada
+          border-radius: 5px; // Hace los bordes del input más redondeados
+        }
+      }
+    }
+  
+    ion-button {
+      --background: #007bff; // Cambia el color de fondo del botón
+      --color: #fff; // Cambia el color del texto del botón
+      margin-top: 20px; // Añade margen superior al botón
+    }
+  }
+  
