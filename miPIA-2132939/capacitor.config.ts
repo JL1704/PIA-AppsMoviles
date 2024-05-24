@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.miPIA.2132939',
   appName: 'miPIA-2132939',
   webDir: 'www'
 };
