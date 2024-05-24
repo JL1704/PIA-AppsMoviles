@@ -75,11 +75,6 @@ export class CartService {
       console.error('Error al eliminar campo del carrito en Firestore:', error);
     }
   }
-  /*  
-  clearCart() {
-    this.cartItemsSubject.next([]); // Actualiza el BehaviorSubject localmente
-    this.updateFirestoreCart([]); // Actualiza Firestore para limpiar el carrito
-  }*/
 
   private updateFirestoreCart(cartItems: Game[]) {
     this.afAuth.authState.subscribe(user => {
@@ -104,18 +99,6 @@ export class CartService {
       })
     );
   }
-/*
-  async transferCartToLibrary(uid: string, cartItems: Game[]) {
-    try {
-      const libraryRef = this.firestore.collection('library').doc(uid);
-      const gameRefs = cartItems.map(item => this.firestore.collection('AllGames').doc(item.title).ref);
-  
-      // Transferir los datos del carrito a la colección "library"
-      await libraryRef.set({ Cart: gameRefs }, { merge: true });
-    } catch (error) {
-      throw error;
-    }
-  }*/
 
   async transferCartToLibrary(uid: string, cartItems: Game[]) {
     try {
@@ -141,12 +124,7 @@ export class CartService {
       throw error;
     }
   }
-  
-  
-  
-  
-
-  
+    
   async clearCart(uid: string) {
     try {
       const cartRef = this.firestore.collection('ShoppingCart').doc(uid);
