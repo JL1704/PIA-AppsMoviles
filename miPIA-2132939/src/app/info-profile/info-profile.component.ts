@@ -1,59 +1,9 @@
-/*import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { CamaraService } from '../camara.service';
-import { Foto } from '../fotos.model';
-
-@Component({
-  selector: 'app-info-profile',
-  templateUrl: './info-profile.component.html',
-  styleUrls: ['./info-profile.component.scss'],
-})
-export class InfoProfileComponent implements OnInit {
-  username: string = '';
-  email: string = '';
-  userImage: string = '';
-  newUsername: string = '';
-  public fotos: Foto[] = [];
-  imageUrl: string = '';
-
-  constructor(private userService: UserService, private camaraService: CamaraService) { }
-
-  ngOnInit(): void {
-    // Obtener datos del usuario al inicializar el componente
-    this.getUserData();
-    this.fotos = this.camaraService.fotos;
-  }
-
-  addPhotoToGallery() {
-    this.camaraService.addNewToGallery();
-  }
-
-  getUserData(): void {
-    this.userService.getUsername()
-      .then((username) => {
-        this.username = username;
-      })
-      .catch((error) => {
-        console.error('Error al obtener el username:', error);
-      });
-  }
-
-  editProfile(newUsername: string): void {
-    this.userService.updateUsername(newUsername)
-      .then(() => {
-        this.username = newUsername;
-      })
-      .catch((error) => {
-        console.error('Error al actualizar el username:', error);
-      });
-  }
-}
-*/
 
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { CamaraService } from '../camara.service';
 import { Foto } from '../fotos.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info-profile',
@@ -68,7 +18,7 @@ export class InfoProfileComponent implements OnInit {
   public fotos: Foto[] = [];
   imageUrl: string = '';
 
-  constructor(private userService: UserService, private camaraService: CamaraService) { }
+  constructor(private userService: UserService, private camaraService: CamaraService, private router: Router) { }
 
   ngOnInit(): void {
     // Obtener datos del usuario al inicializar el componente
@@ -101,9 +51,11 @@ export class InfoProfileComponent implements OnInit {
     this.userService.updateUsername(newUsername)
       .then(() => {
         this.username = newUsername;
+        window.location.reload(); // Recarga la página después de actualizar el nombre de usuario
       })
       .catch((error) => {
         console.error('Error al actualizar el username:', error);
       });
   }
+
 }

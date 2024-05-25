@@ -36,14 +36,16 @@ export class ShoppingCartComponent implements OnInit {
 
   removeFromCart(index: number) {
     this.cartService.removeFromCart(index);
+    window.location.reload();
   }
+
 
   updateTotal() {
     this.total = this.cartItems.reduce((total, item) => total + (item.finalprice || 0), 0);
     this.total$ = of(this.total);
   }
 
-  transferToLibrary() {
+  /*transferToLibrary() {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         const uid = user.uid;
@@ -56,6 +58,28 @@ export class ShoppingCartComponent implements OnInit {
               .catch(error => console.error('Error clearing cart:', error));
           })
           .catch(error => console.error('Error transferring cart to library:', error));
+      }
+    });
+  }*/
+
+  transferToLibrary() {
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        const uid = user.uid;
+        this.cartService.transferCartToLibrary(uid, this.cartItems)
+          .then(() => {
+            console.log('Cart transferred to library successfully');
+            // Eliminar todos los elementos del carrito después de transferirlos a la biblioteca
+            return this.cartService.clearCart(uid);
+          })
+          .then(() => {
+            console.log('Cart cleared successfully');
+            // Recargar la página después de la transferencia y el borrado del carrito
+            window.location.reload();
+          })
+          .catch(error => {
+            console.error('Error in transfer or clear cart process:', error);
+          });
       }
     });
   }

@@ -35,6 +35,7 @@ export class MetodoPagoComponent implements OnInit {
           console.log('Datos del método de pago enviados correctamente.');
           // Cierra el modal al enviar el formulario
           this.dismissModal();
+          window.location.reload();
         })
         .catch(error => {
           console.error('Error al enviar los datos del método de pago:', error);
