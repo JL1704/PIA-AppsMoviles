@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  imageHome: string = "https://th.bing.com/th/id/OIP.Px6pP-pArBAwRsgZJVrO3wHaEK?rs=1&pid=ImgDetMain";
+  imageHome: string = "https://firebasestorage.googleapis.com/v0/b/gamestore-d3f5c.appspot.com/o/Banner%20Tecnolog%C3%ADa%20Oferta%20Especial%20Morado%20y%20Negro.png?alt=media&token=35d15bc2-0c49-4ef3-97fa-2e15b59408a5";
   constructor() { }
 
   ngOnInit() {

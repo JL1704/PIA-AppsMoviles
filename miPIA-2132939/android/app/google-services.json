@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1058806512168",
+    "project_id": "gamestore-d3f5c",
+    "storage_bucket": "gamestore-d3f5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058806512168:android:0ed685a74ff8b2f1ac931d",
+        "android_client_info": {
+          "package_name": "com.josel.gamestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058806512168-d4g89ompsfa4o4b66p2v1jr17vjupduf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7GFKRdbq3iYmQAAT-_QWPFNCQqoIj2nM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058806512168-d4g89ompsfa4o4b66p2v1jr17vjupduf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
